@@ -1,4 +1,3 @@
----
 services:
   foldingathome:
     image: lscr.io/linuxserver/foldingathome:latest
@@ -12,5 +11,9 @@ services:
     volumes:
       - /path/to/foldingathome/data:/config
     ports:
-      - 7396:7396 #optional
+      - 7396:7396
     restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: ${CPU_LIMIT}
